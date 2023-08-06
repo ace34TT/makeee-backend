@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import { UserRoute } from "./routes/user.routes";
 
 const app = express();
 //
@@ -25,5 +26,5 @@ app.use(express.urlencoded({ extended: false }));
 // app.use("/api/chat", ChatRouter);
 
 // app.post("/upload", upload.single("file"), () => {});
-app.post("/api/", async (req: any, res: Response) => {});
+app.use("/api/user/", UserRoute);
 export default app;

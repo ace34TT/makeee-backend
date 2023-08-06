@@ -5,6 +5,8 @@ export const UserSignUpHandler = (
   res: Response,
   next: NextFunction
 ) => {
+  console.log(req.body);
+  console.log("singing up user");
   return res.send({ message: "user register successfully" });
 };
 export const UserSignInHandler = (
