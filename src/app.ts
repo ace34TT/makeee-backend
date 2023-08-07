@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { UserRoute } from "./routes/user.routes";
+import { DestinationRoute } from "./routes/destination.routes";
 
 const app = express();
 //
@@ -23,8 +24,6 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 // !
-// app.use("/api/chat", ChatRouter);
-
-// app.post("/upload", upload.single("file"), () => {});
 app.use("/api/user/", UserRoute);
+app.use("/api/destination/", DestinationRoute);
 export default app;
