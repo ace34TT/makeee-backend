@@ -13,7 +13,7 @@ import {
   runTransaction,
   doc,
 } from "firebase/firestore";
-
+//  "postbuild": "cp -r src/images dist/ && cp -r src/data dist/ && tsc",
 export const UserSignUpHandler = async (
   req: Request,
   res: Response,

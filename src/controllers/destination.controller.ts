@@ -10,7 +10,9 @@ export const GetProvinceHandler = async (
 ) => {
   const provinceName = req.params.province_name;
   console.log(provinceName);
-  const dataFilePath = path.join(__dirname, "../data/provinces.json");
+  const dataFilePath = path.join(__dirname, "../../src/data/provinces.json");
+  console.log(dataFilePath);
+
   fs.readFile(dataFilePath, "utf8", (err, data) => {
     if (err) {
       console.error("Error reading the JSON file:", err);
@@ -40,7 +42,7 @@ export const GetProvinceHandler = async (
 };
 
 export const GetImage = async (req: Request, res: Response) => {
-  const imagePath = path.join(__dirname, "../images");
+  const imagePath = path.join(__dirname, "../../src/images");
   const imageName = req.params.image_name;
   const imagePathFull = path.join(imagePath, imageName);
   res.sendFile(imagePathFull);
@@ -54,7 +56,7 @@ export const GetSearch = async (req: Request, res: Response) => {
 };
 
 function searchHotels(input: any) {
-  const data = require("../data/recherche.json");
+  const data = require("../../src/data/recherche.json");
   const searchTerm = input.toLowerCase();
   const results = data.hotel.filter(
     (hotel: any) =>
