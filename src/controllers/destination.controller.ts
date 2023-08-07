@@ -51,7 +51,6 @@ export const GetSearch = async (req: Request, res: Response) => {
   const text = req.params.text_search;
   const result = searchHotels(text);
   return res.status(200).json({ message: result });
-  
 };
 
 function searchHotels(input) {
