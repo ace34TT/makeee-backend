@@ -3,7 +3,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { UserRoute } from "./routes/user.routes";
-import {FileRoute} from "./routes/file.routes";
+// import { ImageRoute } from "./routes/image.routes";
+// import {FileRoute} from "./routes/file.routes";
 import { DestinationRoute } from "./routes/destination.routes";
 
 
@@ -28,5 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 // !
 app.use("/api/user/", UserRoute);
 app.use("/api/destination/", DestinationRoute);
-app.use("/api/file/",FileRoute);
+// app.use("/api/image/", ImageRoute);
+// app.use("/api/file/",FileRoute);
 export default app;

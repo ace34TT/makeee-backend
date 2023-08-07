@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import path from "path";
 import fs from "fs";
+const imagePath = path.join(__dirname, "../images");
+
 export const GetProvinceHandler = async (
   req: Request,
   res: Response,
@@ -35,4 +37,13 @@ export const GetProvinceHandler = async (
       return res.status(500).json({ error: "Internal server error" });
     }
   });
+};
+
+export const GetImage = async (
+  req: Request,
+  res: Response,
+) => {
+  const imageName = req.params.image_name;
+  const imagePathFull = path.join(imagePath, imageName);
+  res.sendFile(imagePathFull);
 };
