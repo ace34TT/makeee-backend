@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from "express";
 import path from "path";
 import fs from "fs";
 import exp from "constants";
-const imagePath = path.join(__dirname, "../images");
 
 export const GetProvinceHandler = async (
   req: Request,
@@ -41,6 +40,7 @@ export const GetProvinceHandler = async (
 };
 
 export const GetImage = async (req: Request, res: Response) => {
+  const imagePath = path.join(__dirname, "../images");
   const imageName = req.params.image_name;
   const imagePathFull = path.join(imagePath, imageName);
   res.sendFile(imagePathFull);
@@ -49,7 +49,6 @@ export const GetImage = async (req: Request, res: Response) => {
 export const GetSearch = async (req: Request, res: Response) => {
   const text = req.params.text_search;
   console.log("finding");
-
   const result = searchHotels(text);
   return res.status(200).json(result);
 };
