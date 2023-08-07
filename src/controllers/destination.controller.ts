@@ -24,7 +24,7 @@ export const GetProvinceHandler = async (
 
       // Find the province based on the given name
       const foundProvince = provinces.find(
-        (province) => province.name === provinceName
+        (province: any) => province.name === provinceName
       );
       console.log(foundProvince);
       if (!foundProvince) {
@@ -54,11 +54,11 @@ export const GetSearch = async (req: Request, res: Response) => {
   return res.status(200).json(result);
 };
 
-function searchHotels(input) {
+function searchHotels(input: any) {
   const data = require("../data/recherche.json");
   const searchTerm = input.toLowerCase();
   const results = data.hotel.filter(
-    (hotel) =>
+    (hotel: any) =>
       hotel.name.toLowerCase().includes(searchTerm) ||
       hotel.province.toLowerCase().includes(searchTerm)
   );

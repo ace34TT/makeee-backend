@@ -42,7 +42,7 @@ export const UserSignUpHandler = async (
       uid: userCredential.user.uid,
       email: req.body.email,
     });
-  } catch (error) {
+  } catch (error: any) {
     let errorCode = 500; // Default to Internal Server Error
     const errorMessage = error.message;
     console.log(errorMessage);
@@ -84,7 +84,7 @@ export const UserSignInHandler = async (
       uid: doc.data().uid,
       email: req.body.email,
     });
-  } catch (error) {
+  } catch (error: any) {
     const errorCode = error.code;
     const errorMessage = error.message;
     if (errorCode === "auth/user-not-found") {
