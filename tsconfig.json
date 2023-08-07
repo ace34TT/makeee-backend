@@ -1,17 +1,10 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "ESNext",
     "module": "CommonJS",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "resolveJsonModule": true,
-    "incremental": true
-  },
-  "include": ["src/**/*", "src/**/*.json"]
+    "outDir": "dist",
+    "strict": true
+  }
 }
