@@ -40,20 +40,27 @@ export const GetProvinceHandler = async (
   });
 };
 
-export const GetImage = async (
-  req: Request,
-  res: Response,
-) => {
+export const GetImage = async (req: Request, res: Response) => {
   const imageName = req.params.image_name;
   const imagePathFull = path.join(imagePath, imageName);
   res.sendFile(imagePathFull);
 };
 
-export const GetSearch = async(
-  req: Request,
-  res: Response,
-  ) => {
-   const text = req.params.text_search;
-    
-    return res.status(200).json({ message:text });
-  };
+
+export const GetSearch = async (req: Request, res: Response) => {
+  const text = req.params.text_search;
+  const result = searchHotels(text);
+  return res.status(200).json({ message: result });
+  
+};
+
+function searchHotels(input) {
+const data =  require('../data/recherche.json');
+  const searchTerm = input.toLowerCase();
+  const results = data.hotel.filter(
+    (hotel) =>
+      hotel.name.toLowerCase().includes(searchTerm) ||
+      hotel.ville.toLowerCase().includes(searchTerm)
+  );
+  return results;
+}
