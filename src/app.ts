@@ -7,7 +7,6 @@ import { UserRoute } from "./routes/user.routes";
 // import {FileRoute} from "./routes/file.routes";
 import { DestinationRoute } from "./routes/destination.routes";
 
-
 const app = express();
 //
 app.use((req: Request, res: Response, next: NextFunction) => {
