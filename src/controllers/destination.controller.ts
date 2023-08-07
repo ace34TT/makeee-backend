@@ -46,21 +46,21 @@ export const GetImage = async (req: Request, res: Response) => {
   res.sendFile(imagePathFull);
 };
 
-
 export const GetSearch = async (req: Request, res: Response) => {
   const text = req.params.text_search;
+  console.log("finding");
+
   const result = searchHotels(text);
-  return res.status(200).json({ message: result });
-  
+  return res.status(200).json(result);
 };
 
 function searchHotels(input) {
-const data =  require('../data/recherche.json');
+  const data = require("../data/recherche.json");
   const searchTerm = input.toLowerCase();
   const results = data.hotel.filter(
     (hotel) =>
       hotel.name.toLowerCase().includes(searchTerm) ||
-      hotel.ville.toLowerCase().includes(searchTerm)
+      hotel.province.toLowerCase().includes(searchTerm)
   );
   return results;
 }

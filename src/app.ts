@@ -28,6 +28,5 @@ app.use(express.urlencoded({ extended: false }));
 // !
 app.use("/api/user/", UserRoute);
 app.use("/api/destination/", DestinationRoute);
-// app.use("/api/image/", ImageRoute);
-// app.use("/api/file/",FileRoute);
+
 export default app;
