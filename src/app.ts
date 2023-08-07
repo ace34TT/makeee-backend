@@ -26,6 +26,9 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 // !
+app.get("/", (req, res) => {
+  return res.status(200);
+});
 app.use("/api/user/", UserRoute);
 app.use("/api/destination/", DestinationRoute);
 
