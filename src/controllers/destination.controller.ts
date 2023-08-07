@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import path from "path";
 import fs from "fs";
+import exp from "constants";
 const imagePath = path.join(__dirname, "../images");
 
 export const GetProvinceHandler = async (
@@ -47,3 +48,12 @@ export const GetImage = async (
   const imagePathFull = path.join(imagePath, imageName);
   res.sendFile(imagePathFull);
 };
+
+export const GetSearch = async(
+  req: Request,
+  res: Response,
+  ) => {
+   const text = req.params.text_search;
+    
+    return res.status(200).json({ message:text });
+  };
